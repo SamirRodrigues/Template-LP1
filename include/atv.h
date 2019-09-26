@@ -54,6 +54,24 @@ namespace lp1
         return d_first;
     }
 
+   
+
+    template < typename Itr, typename Predicate >    
+    Itr find_if( Itr first, Itr last, Predicate p)
+    {
+        while(first != last)
+        {
+            if (p(*first))
+            {
+                break;
+            } 
+
+            first++;
+        }
+
+        return first;
+    }
+
 }
 
 #endif

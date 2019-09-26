@@ -8,6 +8,11 @@ const bool cmp(const int &a, const int &b)
     return a < b; // If a < b return true else return false;
 }
 
+const bool predicate(const int &a)
+{ 
+    return a > 30;   
+}
+
 void q1()
 {
     int A[50];
@@ -81,7 +86,7 @@ void q3()
 
     for (size_t i = count; i > 0 ; i--)
     {
-        *last_B = 0;
+        *(last_B-1) = 0;
         last_B--;
     }
     
@@ -93,6 +98,24 @@ void q3()
     std::cout << std::endl;
 }
 
+void q4()
+{
+    int A[50];    
+    int count = 0;
+
+    std::cout << "A: " << std::endl; 
+    for(int & e : A) //Range for
+    {
+        e = count;
+        count += 1;
+        std::cout << e << " ";
+    }
+    
+    auto result = lp1::find_if( std::begin(A), std::end(A), predicate );
+
+    std:: cout << std::endl  << "Result: " << *result << std::endl;
+
+}
 
 int main()
 {
@@ -105,5 +128,8 @@ int main()
     std::cout << std::endl;
     std::cout << ">>> QUESTION NUMBER 3 <<<" << std::endl;
     q3();
+    std::cout << std::endl;
+    std::cout << ">>> QUESTION NUMBER 4 <<<" << std::endl;
+    q4();
     return 0;    
 }
