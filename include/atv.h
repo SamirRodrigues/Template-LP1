@@ -41,6 +41,19 @@ namespace lp1
         }
     }
 
+    template < typename Itr >    
+    Itr copy( Itr first, Itr last, Itr d_first)
+    {
+        while(first != last)
+        {
+            *d_first = *first;
+            d_first++;
+            first++;
+        }
+
+        return d_first;
+    }
+
 }
 
 #endif
