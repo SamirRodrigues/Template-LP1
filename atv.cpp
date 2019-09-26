@@ -13,6 +13,11 @@ const bool predicate(const int &a)
     return a > 30;   
 }
 
+const bool equal(const int &a, const int &b)
+{ 
+    return a == b;   
+}
+
 void q1()
 {
     int A[50];
@@ -117,6 +122,24 @@ void q4()
 
 }
 
+void q5()
+{
+    int A[50];    
+    int count = 0;
+
+    std::cout << "A: " << std::endl; 
+    for(int & e : A) //Range for
+    {
+        e = count;
+        count += 1;
+        std::cout << e << " ";
+    }
+    
+    auto result = lp1::find( std::begin(A), std::end(A), 30, equal );
+
+    std:: cout << std::endl  << "Result: " << *result << std::endl;
+}
+
 int main()
 {
     std::cout << std::endl;
@@ -131,5 +154,8 @@ int main()
     std::cout << std::endl;
     std::cout << ">>> QUESTION NUMBER 4 <<<" << std::endl;
     q4();
+    std::cout << std::endl;
+    std::cout << ">>> QUESTION NUMBER 5 <<<" << std::endl;
+    q5();
     return 0;    
 }
