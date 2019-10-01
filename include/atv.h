@@ -226,6 +226,23 @@ namespace lp1
 
         return ponteiro;
     }
+
+    template<typename Itr, typename Comparison>
+    void sort(Itr first, Itr last, Comparison comp)
+    {
+        for (int i = 0; i < (last - first); ++i)
+        {
+            int aux = i;
+            for (int j = i + 1; j <= (last - first); ++j)
+            {
+                if (comp (*(first + j), *(first+aux)))
+                {
+                    aux = j;
+                }
+            }
+            std::swap(*(first+i),*(first+aux));
+        }
+    }
 }
 
 #endif
